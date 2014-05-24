@@ -7,9 +7,11 @@ Settings::Settings(QWidget *parent) :
 {
     this->setFixedSize(200,300);
     this->move(300,300);
+    this->setWindowTitle("Settings");
 
     QVBoxLayout *layout = new QVBoxLayout();
 
+    //список всех камер
     combo_box = new QComboBox();
 
     CvCapture* capture = NULL;

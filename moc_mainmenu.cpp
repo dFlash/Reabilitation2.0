@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainmenu.h'
 **
-** Created: Sat May 24 19:11:48 2014
+** Created: Sat May 24 20:26:07 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_View__MainMenu[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -34,13 +34,16 @@ static const uint qt_meta_data_View__MainMenu[] = {
       16,   15,   15,   15, 0x0a,
       23,   15,   15,   15, 0x0a,
       41,   34,   15,   15, 0x0a,
+      59,   15,   15,   15, 0x0a,
+      74,   15,   15,   15, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_View__MainMenu[] = {
     "View::MainMenu\0\0quit()\0settings()\0"
-    "camNum\0getCameraNum(int)\0"
+    "camNum\0getCameraNum(int)\0startProcess()\0"
+    "showMenu()\0"
 };
 
 void View::MainMenu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -52,6 +55,8 @@ void View::MainMenu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 0: _t->quit(); break;
         case 1: _t->settings(); break;
         case 2: _t->getCameraNum((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: _t->startProcess(); break;
+        case 4: _t->showMenu(); break;
         default: ;
         }
     }
@@ -89,9 +94,9 @@ int View::MainMenu::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 5;
     }
     return _id;
 }

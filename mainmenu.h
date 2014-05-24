@@ -5,6 +5,7 @@
 #include <QWidget>
 #include<QPushButton>
 #include"settings.h"
+#include"process.h"
 
 
 namespace View
@@ -22,11 +23,15 @@ namespace View
         void quit();
         void settings();
         void getCameraNum(int camNum);
+        void startProcess();
+
+        void showMenu();
 
 
     private:
         Settings* setting;
         int cameraNum;
+        Process* process;
 
     
     };

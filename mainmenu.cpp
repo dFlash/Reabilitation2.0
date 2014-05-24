@@ -8,14 +8,20 @@ namespace View
     {
         this->setFixedSize(180,350);
         this->move(330,130);
+        this->setWindowTitle("Reabilitation");
 
         this->setting = settings;
         connect(setting,SIGNAL(setCameraNum(int)),this,SLOT(getCameraNum(int)));
         cameraNum = 0;//Значение камеры по умолчанию
 
+        process = new Process();
+        connect(process,SIGNAL(singalToMenu()),this,SLOT(showMenu()));
+
 
         QPushButton *btn_start = new QPushButton("Start",this);
         btn_start->setGeometry(10,10,150,70);
+        connect(btn_start,SIGNAL(clicked()),this,SLOT(startProcess()));
+
 
         QPushButton *btn_settings = new QPushButton("Settings",this);
         btn_settings->setGeometry(10,180,150,50);
@@ -42,6 +48,18 @@ namespace View
     void MainMenu::getCameraNum(int camNum)
     {
         cameraNum = camNum;
+    }
+
+    //начать процесс обработки
+    void MainMenu::startProcess()
+    {
+        process->show();
+        this->hide();
+    }
+
+    void MainMenu::showMenu()
+    {
+        this->show();
     }
 
 

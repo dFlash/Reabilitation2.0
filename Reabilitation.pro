@@ -32,7 +32,8 @@ symbian:TARGET.CAPABILITY += NetworkServices
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp \
     mainmenu.cpp \
-    settings.cpp
+    settings.cpp \
+    process.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -87,4 +88,5 @@ DEPENDPATH += $$PWD/../../../../../../usr/local/include
 
 HEADERS += \
     mainmenu.h \
-    settings.h
+    settings.h \
+    process.h
