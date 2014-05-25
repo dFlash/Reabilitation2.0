@@ -53,8 +53,11 @@ namespace View
     //начать процесс обработки
     void MainMenu::startProcess()
     {
-        process->show();
         this->hide();
+        process->setCamera(cameraNum);
+        process->show();
+        process->startProcess();
+
     }
 
     void MainMenu::showMenu()

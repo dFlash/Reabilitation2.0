@@ -33,7 +33,9 @@ symbian:TARGET.CAPABILITY += NetworkServices
 SOURCES += main.cpp \
     mainmenu.cpp \
     settings.cpp \
-    process.cpp
+    process.cpp \
+    algomanager.cpp \
+    skeletization.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -89,4 +91,10 @@ DEPENDPATH += $$PWD/../../../../../../usr/local/include
 HEADERS += \
     mainmenu.h \
     settings.h \
-    process.h
+    process.h \
+    ialgorithm.h \
+    algomanager.h \
+    itracking.h \
+    idms.h \
+    iskeletization.h \
+    skeletization.h
