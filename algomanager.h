@@ -11,7 +11,7 @@ namespace Algorithms
     public:
         AlgoManager(ISkeletization* skel);
         void skeletization(bool isFirst,cv::Mat& currFrame, cv::Mat& skeleton);
-        void tracking();
+        void tracking(bool isFirst, cv::Mat &currFrame);
         void dms();
 
     private:

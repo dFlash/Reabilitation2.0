@@ -35,7 +35,8 @@ SOURCES += main.cpp \
     settings.cpp \
     process.cpp \
     algomanager.cpp \
-    skeletization.cpp
+    skeletization.cpp \
+    data.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -97,4 +98,5 @@ HEADERS += \
     itracking.h \
     idms.h \
     iskeletization.h \
-    skeletization.h
+    skeletization.h \
+    data.h

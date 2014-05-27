@@ -21,7 +21,7 @@ namespace Algorithms
         }
     }
 
-    void AlgoManager::tracking()
+    void AlgoManager::tracking(bool isFirst, cv::Mat &currFrame)
     {
         //
         qDebug()<<"AlgoManager::tracking";

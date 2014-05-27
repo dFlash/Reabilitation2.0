@@ -13,7 +13,7 @@ namespace Algorithms
     {
     public:
         virtual void skeletization(bool isFirst,cv::Mat& currFrame, cv::Mat& skeleton) = 0;
-        virtual void tracking() = 0;
+        virtual void tracking(bool isFirst, cv::Mat& currFrame) = 0;
         virtual void dms() = 0;
     };
 

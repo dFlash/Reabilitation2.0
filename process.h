@@ -25,10 +25,17 @@ public slots:
     void toExit();
     void startProcess();
 
+    void startForDecision();
+
 private:
     int cameraNum;
     IAgorithm* algo;
     ISkeletization* skeletization;
+
+    CvCapture* capture;//захват видео с камеры
+    bool toMain;//проверка для перехода в главное меню
+
+    int isStart;
     
 };
 }

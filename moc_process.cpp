@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'process.h'
 **
-** Created: Sun May 25 20:48:24 2014
+** Created: Tue May 27 19:38:19 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_View__Process[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -37,6 +37,7 @@ static const uint qt_meta_data_View__Process[] = {
       30,   14,   14,   14, 0x0a,
       43,   14,   14,   14, 0x0a,
       52,   14,   14,   14, 0x0a,
+      67,   14,   14,   14, 0x0a,
 
        0        // eod
 };
@@ -44,6 +45,7 @@ static const uint qt_meta_data_View__Process[] = {
 static const char qt_meta_stringdata_View__Process[] = {
     "View::Process\0\0singalToMenu()\0"
     "toMainMenu()\0toExit()\0startProcess()\0"
+    "startForDecision()\0"
 };
 
 void View::Process::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -56,6 +58,7 @@ void View::Process::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 1: _t->toMainMenu(); break;
         case 2: _t->toExit(); break;
         case 3: _t->startProcess(); break;
+        case 4: _t->startForDecision(); break;
         default: ;
         }
     }
@@ -94,9 +97,9 @@ int View::Process::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

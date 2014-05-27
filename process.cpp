@@ -16,6 +16,9 @@ namespace View
         btn_exit->setGeometry(20,170,140,50);
         connect(btn_exit,SIGNAL(clicked()),this,SLOT(toExit()));
 
+        QPushButton *btn_start_for_decision = new QPushButton("Start for decision",this);
+        btn_start_for_decision->setGeometry(20,10,140,70);
+        connect(btn_start_for_decision,SIGNAL(clicked()),this,SLOT(startForDecision()));
 
         skeletization = new Skeletization();
 
@@ -26,6 +29,7 @@ namespace View
     //переход в главное меню
     void Process::toMainMenu()
     {
+        toMain=true;
         this->close();
         emit singalToMenu();
     }
@@ -45,7 +49,10 @@ namespace View
     //тут вся обработка изображения
     void Process::startProcess()
     {
-        CvCapture* capture = NULL;
+        capture = NULL;
+        toMain = false;
+
+        isStart = false;
 
         //capture = cvCaptureFromCAM(cameraNum);
         capture = cvCaptureFromFile("test7.webm");
@@ -67,6 +74,13 @@ namespace View
             {
                 count++;
                 continue;
+            }
+
+            if (toMain)
+            {
+                cv::destroyAllWindows();
+                cvReleaseCapture(&capture);
+                break;
             }
 
 
@@ -94,5 +108,10 @@ namespace View
             if (key==27)break;
 
         }
+    }
+
+    void Process::startForDecision()
+    {
+        isStart = true;
     }
 }
