@@ -9,6 +9,7 @@ namespace View
         this->setFixedSize(180,350);
         this->move(330,130);
         this->setWindowTitle("Reabilitation");
+        QVBoxLayout *layout = new QVBoxLayout();
 
         this->setting = settings;
         connect(setting,SIGNAL(setCameraNum(int)),this,SLOT(getCameraNum(int)));
@@ -21,15 +22,35 @@ namespace View
         QPushButton *btn_start = new QPushButton("Start",this);
         btn_start->setGeometry(10,10,150,70);
         connect(btn_start,SIGNAL(clicked()),this,SLOT(startProcess()));
+        layout->addWidget(btn_start);
+
+        cmbo_listVideos = new QComboBox();
+        QDir *dir = new QDir("./data/");
+        QStringList list = dir->entryList();
+
+        for (QStringList::Iterator it = list.begin();it!=list.end();it++)
+        {
+            QString str = *it;
+            if (str.startsWith("train"))
+            {
+                cmbo_listVideos->addItem(str);
+            }
+
+        }
+        layout->addWidget(cmbo_listVideos);
 
 
         QPushButton *btn_settings = new QPushButton("Settings",this);
         btn_settings->setGeometry(10,180,150,50);
         connect(btn_settings,SIGNAL(clicked()),this,SLOT(settings()));
+        layout->addWidget(btn_settings);
 
         QPushButton *btn_exit = new QPushButton("Exit",this);
         btn_exit->setGeometry(10,240,150,50);
         connect(btn_exit,SIGNAL(clicked()),this,SLOT(quit()));
+        layout->addWidget(btn_exit);
+
+        this->setLayout(layout);
     }
 
     //выход из программы
@@ -56,8 +77,9 @@ namespace View
         this->hide();
         process->setCamera(cameraNum);
         process->show();
-        process->startProcess();
-
+        qDebug()<<cmbo_listVideos->currentText();
+        QString str = cmbo_listVideos->currentText();
+        process->startProcess(str);
     }
 
     void MainMenu::showMenu()

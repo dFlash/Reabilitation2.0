@@ -4,6 +4,10 @@
 #include<QApplication>
 #include <QWidget>
 #include<QPushButton>
+#include<QVBoxLayout>
+#include<QComboBox>
+#include<QDir>
+#include<QStringList>
 #include"settings.h"
 #include"process.h"
 
@@ -29,6 +33,8 @@ namespace View
 
 
     private:
+        QComboBox* cmbo_listVideos;
+
         Settings* setting;
         int cameraNum;
         Process* process;

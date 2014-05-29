@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include<QPushButton>
+#include<QString>
+
 #include"algomanager.h"
 #include"skeletization.h"
 #include"tracking.h"
@@ -24,11 +26,11 @@ signals:
 public slots:
     void toMainMenu();
     void toExit();
-    void startProcess();
+    void startProcess(QString& training);
 
     void startForDecision();
 
-private:
+private:    
     int cameraNum;
     IAgorithm* algo;
     ISkeletization* skeletization;

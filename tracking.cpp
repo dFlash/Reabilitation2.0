@@ -294,6 +294,7 @@ namespace Algorithms
 
         }
 
+        qDebug()<<dataOfFeatures.getPosLH().x<<" "<<dataOfFeatures.getPosLH().y<<" "<<dataOfFeatures.getPosRH().x<<" "<<dataOfFeatures.getPosRH().y;
     }
 
     void Tracking::getSize(cv::Mat &img, int curX, int curY, int destX, int destY,int& size)

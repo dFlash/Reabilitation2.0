@@ -48,7 +48,7 @@ namespace View
     }
 
     //тут вся обработка изображения
-    void Process::startProcess()
+    void Process::startProcess(QString& training)
     {
         capture = NULL;
         toMain = false;

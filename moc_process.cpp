@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'process.h'
 **
-** Created: Wed May 28 18:43:28 2014
+** Created: Thu May 29 15:46:31 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -36,16 +36,16 @@ static const uint qt_meta_data_View__Process[] = {
  // slots: signature, parameters, type, tag, flags
       30,   14,   14,   14, 0x0a,
       43,   14,   14,   14, 0x0a,
-      52,   14,   14,   14, 0x0a,
-      67,   14,   14,   14, 0x0a,
+      61,   52,   14,   14, 0x0a,
+      84,   14,   14,   14, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_View__Process[] = {
     "View::Process\0\0singalToMenu()\0"
-    "toMainMenu()\0toExit()\0startProcess()\0"
-    "startForDecision()\0"
+    "toMainMenu()\0toExit()\0training\0"
+    "startProcess(QString&)\0startForDecision()\0"
 };
 
 void View::Process::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -57,12 +57,11 @@ void View::Process::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 0: _t->singalToMenu(); break;
         case 1: _t->toMainMenu(); break;
         case 2: _t->toExit(); break;
-        case 3: _t->startProcess(); break;
+        case 3: _t->startProcess((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 4: _t->startForDecision(); break;
         default: ;
         }
     }
-    Q_UNUSED(_a);
 }
 
 const QMetaObjectExtraData View::Process::staticMetaObjectExtraData = {
