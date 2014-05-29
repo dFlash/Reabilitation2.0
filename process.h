@@ -5,6 +5,7 @@
 #include<QPushButton>
 #include"algomanager.h"
 #include"skeletization.h"
+#include"tracking.h"
 
 using namespace Algorithms;
 
@@ -31,11 +32,14 @@ private:
     int cameraNum;
     IAgorithm* algo;
     ISkeletization* skeletization;
+    ITracking* tracking;
 
     CvCapture* capture;//захват видео с камеры
     bool toMain;//проверка для перехода в главное меню
 
     int isStart;
+
+    Data data;
     
 };
 }

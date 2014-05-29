@@ -2,9 +2,10 @@
 
 namespace Algorithms
 {
-    AlgoManager::AlgoManager(ISkeletization* skel)
+    AlgoManager::AlgoManager(ISkeletization* skel,ITracking* track)
     {
         this->skel = skel;
+        this->track = track;
     }
 
     void AlgoManager::skeletization(bool isFirst,cv::Mat& currFrame, cv::Mat& skeleton)
@@ -21,10 +22,16 @@ namespace Algorithms
         }
     }
 
-    void AlgoManager::tracking(bool isFirst, cv::Mat &currFrame)
+    void AlgoManager::tracking(bool isFirst, cv::Mat &currFrame, Data& data)
     {
-        //
-        qDebug()<<"AlgoManager::tracking";
+        if(isFirst)
+        {
+            track->init(currFrame);
+        }
+        else
+        {
+            data = track->findFeaturePoints(currFrame);
+        }
     }
 
     void AlgoManager::dms()

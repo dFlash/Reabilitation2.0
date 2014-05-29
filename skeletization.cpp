@@ -82,6 +82,7 @@ namespace Algorithms
     cv::Mat Skeletization::getSkeleton()
     {
         skeleton = foreground(*roi);
+        cv::resize(skeleton,skeleton,cv::Size(315,156));
         skeleton /= 255;
 
         cv::Mat prev = cv::Mat::zeros(skeleton.size(), CV_8UC1);
@@ -102,7 +103,4 @@ namespace Algorithms
 
 
     }
-
-
-
 }

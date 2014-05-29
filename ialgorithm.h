@@ -5,6 +5,8 @@
 #include <opencv/cv.h>
 #include <opencv/highgui.h>
 
+#include"data.h"
+
 #include<QDebug>
 
 namespace Algorithms
@@ -13,7 +15,7 @@ namespace Algorithms
     {
     public:
         virtual void skeletization(bool isFirst,cv::Mat& currFrame, cv::Mat& skeleton) = 0;
-        virtual void tracking(bool isFirst, cv::Mat& currFrame) = 0;
+        virtual void tracking(bool isFirst, cv::Mat& currFrame,Model::Data &data) = 0;
         virtual void dms() = 0;
     };
 

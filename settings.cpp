@@ -38,7 +38,6 @@ Settings::Settings(QWidget *parent) :
 
     layout->addWidget(combo_box);
 
-
     QPushButton *btn_ok = new QPushButton("OK",this);
     btn_ok->setGeometry(50,200,100,40);
     layout->addWidget(btn_ok);

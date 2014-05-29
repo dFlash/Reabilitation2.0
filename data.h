@@ -8,6 +8,7 @@
 
 namespace Model
 {
+    //
     class Data
     {
     public:

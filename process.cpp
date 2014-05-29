@@ -21,8 +21,9 @@ namespace View
         connect(btn_start_for_decision,SIGNAL(clicked()),this,SLOT(startForDecision()));
 
         skeletization = new Skeletization();
+        tracking = new Tracking();
 
-        algo = new AlgoManager(skeletization);
+        algo = new AlgoManager(skeletization,tracking);
 
     }
 
@@ -53,6 +54,7 @@ namespace View
         toMain = false;
 
         isStart = false;
+        bool isFirstToTrack = true;
 
         //capture = cvCaptureFromCAM(cameraNum);
         capture = cvCaptureFromFile("test7.webm");
@@ -60,10 +62,8 @@ namespace View
         cv::Mat curr_frame, skeleton;
 
         cv::namedWindow("Your movements");
-        cv::namedWindow("Skeleton");
 
         cv::moveWindow("Your movements",460,50);
-        cv::moveWindow("Skeleton",460,550);
 
         int count = 1;
 
@@ -87,7 +87,7 @@ namespace View
 
             curr_frame = cvQueryFrame(capture);
 
-
+            //skeletization
             if (count==1)
             {
                 algo->skeletization(true,curr_frame,skeleton);
@@ -95,14 +95,24 @@ namespace View
                 continue;
             }
 
-            cv::imshow("Your movements",curr_frame);
-
             algo->skeletization(false,curr_frame,skeleton);
 
             count++;
 
+            //tracking and draw
+            if (isStart)
+            {
+                algo->tracking(isFirstToTrack,skeleton,data);
+                isFirstToTrack = false;
+            }
 
-            cv::imshow("Skeleton",skeleton);
+            cv::ellipse(curr_frame,cv::Point(data.getPosLH().x*2,data.getPosLH().y*2),cv::Size(10,10),100,0,360,cv::Scalar(255,0,0));
+            cv::ellipse(curr_frame,cv::Point(data.getPosRH().x*2,data.getPosRH().y*2),cv::Size(10,10),100,0,360,cv::Scalar(255,0,0));
+
+            cv::ellipse(curr_frame,cv::Point(data.getPosLE().x*2,data.getPosLE().y*2),cv::Size(10,10),100,0,360,cv::Scalar(255,0,0));
+            cv::ellipse(curr_frame,cv::Point(data.getPosRE().x*2,data.getPosRE().y*2),cv::Size(10,10),100,0,360,cv::Scalar(255,0,0));
+
+            cv::imshow("Your movements",curr_frame);
 
             char key = cvWaitKey(1);
             if (key==27)break;
