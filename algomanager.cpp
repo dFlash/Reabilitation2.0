@@ -2,10 +2,11 @@
 
 namespace Algorithms
 {
-    AlgoManager::AlgoManager(ISkeletization* skel,ITracking* track)
+    AlgoManager::AlgoManager(ISkeletization* skel,ITracking* track,Idms* DMS)
     {
         this->skel = skel;
         this->track = track;
+        this->DMS = DMS;
     }
 
     void AlgoManager::skeletization(bool isFirst,cv::Mat& currFrame, cv::Mat& skeleton)
@@ -34,10 +35,10 @@ namespace Algorithms
         }
     }
 
-    void AlgoManager::dms()
+    QString AlgoManager::dms(Model::Data& curData, Model::Data& mustData)
     {
-        //
-        qDebug()<<"AlgoManager::dms()";
+        DMS->compare(curData,mustData);
+        return DMS->getDecision();
     }
 }
 

@@ -8,6 +8,7 @@
 #include"data.h"
 
 #include<QDebug>
+#include<QString>
 
 namespace Algorithms
 {
@@ -16,7 +17,7 @@ namespace Algorithms
     public:
         virtual void skeletization(bool isFirst,cv::Mat& currFrame, cv::Mat& skeleton) = 0;
         virtual void tracking(bool isFirst, cv::Mat& currFrame,Model::Data &data) = 0;
-        virtual void dms() = 0;
+        virtual QString dms(Model::Data& curData, Model::Data& mustData) = 0;
     };
 
 }

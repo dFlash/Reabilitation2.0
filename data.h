@@ -12,6 +12,8 @@ namespace Model
     class Data
     {
     public:
+        Data();
+        Data(int lx, int ly, int rx, int ry);
         //getters
         cv::Point2i getPosLH();
         cv::Point2i getPosRH();

@@ -31,7 +31,7 @@ namespace View
         for (QStringList::Iterator it = list.begin();it!=list.end();it++)
         {
             QString str = *it;
-            if (str.startsWith("train"))
+            if (str.startsWith("train") && !str.endsWith("~"))
             {
                 cmbo_listVideos->addItem(str);
             }
@@ -77,7 +77,6 @@ namespace View
         this->hide();
         process->setCamera(cameraNum);
         process->show();
-        qDebug()<<cmbo_listVideos->currentText();
         QString str = cmbo_listVideos->currentText();
         process->startProcess(str);
     }

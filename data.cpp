@@ -2,6 +2,19 @@
 
 namespace Model
 {
+    Data::Data()
+    {
+        //
+    }
+
+    Data::Data(int lx, int ly, int rx, int ry)
+    {
+        posLH.x = lx;
+        posLH.y = ly;
+        posRH.x = rx;
+        posRH.y = ry;
+    }
+
 //getters
     cv::Point2i Data::getPosLH()
     {

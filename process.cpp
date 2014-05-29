@@ -20,10 +20,16 @@ namespace View
         btn_start_for_decision->setGeometry(20,10,140,70);
         connect(btn_start_for_decision,SIGNAL(clicked()),this,SLOT(startForDecision()));
 
+        labelDecision = new QLabel(this);
+        labelDecision->setText("NORM");
+        labelDecision->setFont(QFont("lucida", 6, QFont::Bold, true));
+        labelDecision->setGeometry(20,220,150,60);
+
         skeletization = new Skeletization();
         tracking = new Tracking();
+        decision_make_system = new DMS();
 
-        algo = new AlgoManager(skeletization,tracking);
+        algo = new AlgoManager(skeletization,tracking,decision_make_system);
 
     }
 
@@ -66,6 +72,11 @@ namespace View
         cv::moveWindow("Your movements",460,50);
 
         int count = 1;
+
+        QString pathFolder("data/");
+        QString path = pathFolder+training;
+
+        std::ifstream infile(path.toStdString().c_str());
 
         while(true)
         {
@@ -111,6 +122,25 @@ namespace View
 
             cv::ellipse(curr_frame,cv::Point(data.getPosLE().x*2,data.getPosLE().y*2),cv::Size(10,10),100,0,360,cv::Scalar(255,0,0));
             cv::ellipse(curr_frame,cv::Point(data.getPosRE().x*2,data.getPosRE().y*2),cv::Size(10,10),100,0,360,cv::Scalar(255,0,0));
+
+            //dms
+            if(isStart)
+            {
+                if(lx==-100)
+                {
+                    toMainMenu();
+                }
+
+                infile >> lx >> ly >> rx >> ry;
+                Data mustHavedata(lx,ly,rx,ry);
+                advice = algo->dms(data,mustHavedata);
+
+                labelDecision->setText(advice);
+
+                cv::ellipse(curr_frame,cv::Point(lx*2,ly*2),cv::Size(10,10),100,0,360,cv::Scalar(255,255,255));
+                cv::ellipse(curr_frame,cv::Point(rx*2,ry*2),cv::Size(10,10),100,0,360,cv::Scalar(255,255,255));
+
+            }
 
             cv::imshow("Your movements",curr_frame);
 

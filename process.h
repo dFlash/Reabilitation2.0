@@ -4,10 +4,14 @@
 #include <QWidget>
 #include<QPushButton>
 #include<QString>
+#include<QLabel>
+#include<QFont>
+#include <fstream>
 
 #include"algomanager.h"
 #include"skeletization.h"
 #include"tracking.h"
+#include"dms.h"
 
 using namespace Algorithms;
 
@@ -35,6 +39,7 @@ private:
     IAgorithm* algo;
     ISkeletization* skeletization;
     ITracking* tracking;
+    Idms* decision_make_system;
 
     CvCapture* capture;//захват видео с камеры
     bool toMain;//проверка для перехода в главное меню
@@ -42,6 +47,12 @@ private:
     int isStart;
 
     Data data;
+
+    QLabel* labelDecision;//для вывода советов
+    int lx, ly, rx, ry;//координаты нужных позиций
+
+    QString advice;
+
     
 };
 }
