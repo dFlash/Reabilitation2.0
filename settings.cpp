@@ -5,7 +5,7 @@ namespace View
 Settings::Settings(QWidget *parent) :
     QWidget(parent)
 {
-    this->setFixedSize(200,300);
+    this->setFixedSize(200,200);
     this->move(300,300);
     this->setWindowTitle("Settings");
 
@@ -39,7 +39,7 @@ Settings::Settings(QWidget *parent) :
     layout->addWidget(combo_box);
 
     QPushButton *btn_ok = new QPushButton("OK",this);
-    btn_ok->setGeometry(50,200,100,40);
+    btn_ok->setFixedSize(177,40);
     layout->addWidget(btn_ok);
 
     this->setLayout(layout);

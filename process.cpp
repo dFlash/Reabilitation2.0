@@ -141,6 +141,15 @@ namespace View
                 cv::ellipse(curr_frame,cv::Point(rx*2,ry*2),cv::Size(10,10),100,0,360,cv::Scalar(255,255,255));
 
             }
+            else
+            {
+                cv::rectangle(curr_frame,cv::Rect(2,124,100,100),cv::Scalar(0,0,255));
+                cv::rectangle(curr_frame,cv::Rect(384,80,100,100),cv::Scalar(0,0,255));
+                cv::rectangle(curr_frame,cv::Rect(98,162,100,100),cv::Scalar(0,0,255));
+                cv::rectangle(curr_frame,cv::Rect(320,146,100,100),cv::Scalar(0,0,255));
+            }
+
+
 
             cv::imshow("Your movements",curr_frame);
 

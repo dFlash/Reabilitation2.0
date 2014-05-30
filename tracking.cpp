@@ -251,8 +251,8 @@ namespace Algorithms
 
         if (isFirst)
         {
-            getSize(img,tempLX,tempLY,dataOfFeatures.getPosLE().x,dataOfFeatures.getPosLE().y,leftSize);
-            getSize(img,tempRX,tempRY,dataOfFeatures.getPosRE().x,dataOfFeatures.getPosRE().y,rightSize);
+            getSize(img,tempLX,tempLY,dataOfFeatures.getPosLE().x,dataOfFeatures.getPosLE().y,leftSize,moveL);
+            getSize(tempImg,tempRX,tempRY,dataOfFeatures.getPosRE().x,dataOfFeatures.getPosRE().y,rightSize,moveR);
 
             dataOfFeatures.setLeftSize(leftSize);
             dataOfFeatures.setRightSize(rightSize);
@@ -296,20 +296,20 @@ namespace Algorithms
 
     }
 
-    void Tracking::getSize(cv::Mat &img, int curX, int curY, int destX, int destY,int& size)
+    void Tracking::getSize(cv::Mat &img, int curX, int curY, int destX, int destY,int& size,int move[8][2])
     {
         while(curX!=destX || curY!=destY)
         {
             for (int i=0;i<8;i++)
             {
-                if(img.at<uchar>(curY+moveL[i][0],curX+moveL[i][1])!=0)
+                if(img.at<uchar>(curY+move[i][0],curX+move[i][1])!=0)
                 {
                     img.at<uchar>(curY,curX)=0;
 
                     size++;
 
-                    curX = curX+moveL[i][1];
-                    curY = curY+moveL[i][0];
+                    curX = curX+move[i][1];
+                    curY = curY+move[i][0];
                     break;
                 }
             }

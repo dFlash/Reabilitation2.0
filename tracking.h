@@ -24,7 +24,7 @@ namespace Algorithms
         //get elbows coordinates
         void getForearmSize(cv::Mat& img,bool isFirst);
         //get sizes to elbows from hands
-        void getSize(cv::Mat& img, int curX, int curY, int destX, int destY,int& size);
+        void getSize(cv::Mat& img, int curX, int curY, int destX, int destY,int& size, int move[8][2]);
 
     };
 
